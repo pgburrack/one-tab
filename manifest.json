@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "oneTab",
+  "description": "Manage all open tabs in one tab",
   "version": "1.0",
 
   "browser_action": {
@@ -10,9 +10,16 @@
   },
   "background": {
     "persistent": false,
-    "scripts": ["background.js"]
+    "page": "background.html"
   },
+  "content_scripts":[
+    {
+      "matches": ["<all_urls>"],
+      "js": ["myscript.js"]
+    }
+  ],
   "permissions": [
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ]
 }
